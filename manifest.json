@@ -1,0 +1,36 @@
+{
+  "name": "Audio Aid",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Listens for and corrects common audio issues automatically",
+  "homepage_url": "http://github.com/",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabCapture"
+  ],
+  "page_action": {
+    "default_popup": "src/popup/popup.html"
+  }
+}
